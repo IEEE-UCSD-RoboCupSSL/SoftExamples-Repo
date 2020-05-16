@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "MyProto";
+
+message greet {
+    string msg = 1;
+    uint32 val = 2;
+}
+
+/*
+
+service Greet {
+    rpc sayHi(greet) returns (greet) {}
+}
+*/

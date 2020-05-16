@@ -365,3 +365,7 @@ mvn clean install
 
 this will generate proto and gRPC java source files under "target/generated-sources/protobuf/....."
 
+(VSCode might warn certain error of the generated files or the pom files, simply ignore them, they might disappear after VSCode complete parsing syntax for quite a while, not sure why vscode does this)
+
+
+

@@ -1,5 +1,7 @@
 package ieeeucsd;
 
+import java.io.IOException;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -33,6 +35,12 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
+        String[] args = {};
+        try {
+            App.main(args);
+        }
+        catch (Exception e) {
+            System.out.println(e.toString());
+        }
     }
 }

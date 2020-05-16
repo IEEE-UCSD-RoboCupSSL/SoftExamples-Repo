@@ -31,10 +31,16 @@ public final class Rpc {
         getMsgBytes();
 
     /**
-     * <code>uint32 val = 2;</code>
-     * @return The val.
+     * <code>string identity = 2;</code>
+     * @return The identity.
      */
-    int getVal();
+    java.lang.String getIdentity();
+    /**
+     * <code>string identity = 2;</code>
+     * @return The bytes for identity.
+     */
+    com.google.protobuf.ByteString
+        getIdentityBytes();
   }
   /**
    * Protobuf type {@code greet}
@@ -50,6 +56,7 @@ public final class Rpc {
     }
     private greet() {
       msg_ = "";
+      identity_ = "";
     }
 
     @java.lang.Override
@@ -88,9 +95,10 @@ public final class Rpc {
               msg_ = s;
               break;
             }
-            case 16: {
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              val_ = input.readUInt32();
+              identity_ = s;
               break;
             }
             default: {
@@ -161,14 +169,40 @@ public final class Rpc {
       }
     }
 
-    public static final int VAL_FIELD_NUMBER = 2;
-    private int val_;
+    public static final int IDENTITY_FIELD_NUMBER = 2;
+    private volatile java.lang.Object identity_;
     /**
-     * <code>uint32 val = 2;</code>
-     * @return The val.
+     * <code>string identity = 2;</code>
+     * @return The identity.
      */
-    public int getVal() {
-      return val_;
+    public java.lang.String getIdentity() {
+      java.lang.Object ref = identity_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        identity_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string identity = 2;</code>
+     * @return The bytes for identity.
+     */
+    public com.google.protobuf.ByteString
+        getIdentityBytes() {
+      java.lang.Object ref = identity_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        identity_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -188,8 +222,8 @@ public final class Rpc {
       if (!getMsgBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, msg_);
       }
-      if (val_ != 0) {
-        output.writeUInt32(2, val_);
+      if (!getIdentityBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, identity_);
       }
       unknownFields.writeTo(output);
     }
@@ -203,9 +237,8 @@ public final class Rpc {
       if (!getMsgBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, msg_);
       }
-      if (val_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(2, val_);
+      if (!getIdentityBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, identity_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -224,8 +257,8 @@ public final class Rpc {
 
       if (!getMsg()
           .equals(other.getMsg())) return false;
-      if (getVal()
-          != other.getVal()) return false;
+      if (!getIdentity()
+          .equals(other.getIdentity())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -239,8 +272,8 @@ public final class Rpc {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MSG_FIELD_NUMBER;
       hash = (53 * hash) + getMsg().hashCode();
-      hash = (37 * hash) + VAL_FIELD_NUMBER;
-      hash = (53 * hash) + getVal();
+      hash = (37 * hash) + IDENTITY_FIELD_NUMBER;
+      hash = (53 * hash) + getIdentity().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -376,7 +409,7 @@ public final class Rpc {
         super.clear();
         msg_ = "";
 
-        val_ = 0;
+        identity_ = "";
 
         return this;
       }
@@ -405,7 +438,7 @@ public final class Rpc {
       public MyProto.Rpc.greet buildPartial() {
         MyProto.Rpc.greet result = new MyProto.Rpc.greet(this);
         result.msg_ = msg_;
-        result.val_ = val_;
+        result.identity_ = identity_;
         onBuilt();
         return result;
       }
@@ -458,8 +491,9 @@ public final class Rpc {
           msg_ = other.msg_;
           onChanged();
         }
-        if (other.getVal() != 0) {
-          setVal(other.getVal());
+        if (!other.getIdentity().isEmpty()) {
+          identity_ = other.identity_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -566,32 +600,78 @@ public final class Rpc {
         return this;
       }
 
-      private int val_ ;
+      private java.lang.Object identity_ = "";
       /**
-       * <code>uint32 val = 2;</code>
-       * @return The val.
+       * <code>string identity = 2;</code>
+       * @return The identity.
        */
-      public int getVal() {
-        return val_;
+      public java.lang.String getIdentity() {
+        java.lang.Object ref = identity_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          identity_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
-       * <code>uint32 val = 2;</code>
-       * @param value The val to set.
+       * <code>string identity = 2;</code>
+       * @return The bytes for identity.
+       */
+      public com.google.protobuf.ByteString
+          getIdentityBytes() {
+        java.lang.Object ref = identity_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          identity_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string identity = 2;</code>
+       * @param value The identity to set.
        * @return This builder for chaining.
        */
-      public Builder setVal(int value) {
-        
-        val_ = value;
+      public Builder setIdentity(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        identity_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>uint32 val = 2;</code>
+       * <code>string identity = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearVal() {
+      public Builder clearIdentity() {
         
-        val_ = 0;
+        identity_ = getDefaultInstance().getIdentity();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string identity = 2;</code>
+       * @param value The bytes for identity to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIdentityBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        identity_ = value;
         onChanged();
         return this;
       }
@@ -662,8 +742,9 @@ public final class Rpc {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\trpc.proto\"!\n\005greet\022\013\n\003msg\030\001 \001(\t\022\013\n\003val" +
-      "\030\002 \001(\rB\t\n\007MyProtob\006proto3"
+      "\n\trpc.proto\"&\n\005greet\022\013\n\003msg\030\001 \001(\t\022\020\n\010ide" +
+      "ntity\030\002 \001(\t2$\n\007example\022\031\n\005sayHi\022\006.greet\032" +
+      "\006.greet\"\000B\t\n\007MyProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -674,7 +755,7 @@ public final class Rpc {
     internal_static_greet_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_greet_descriptor,
-        new java.lang.String[] { "Msg", "Val", });
+        new java.lang.String[] { "Msg", "Identity", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

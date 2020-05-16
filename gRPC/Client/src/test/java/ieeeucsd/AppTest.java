@@ -33,9 +33,12 @@ public class AppTest
      */
     public void testApp()
     {
-        assertTrue( true );
         String[] args = {};
-        App.main(args);
-
+        try {
+            App.main(args);
+        }
+        catch (Exception e) {
+            System.out.println(e.toString());
+        }
     }
 }

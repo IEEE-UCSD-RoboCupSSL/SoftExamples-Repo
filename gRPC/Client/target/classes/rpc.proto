@@ -4,12 +4,11 @@ option java_package = "MyProto";
 
 message greet {
     string msg = 1;
-    uint32 val = 2;
+    string identity = 2;
 }
 
-/*
 
-service Greet {
+
+service  example {
     rpc sayHi(greet) returns (greet) {}
 }
-*/

@@ -246,6 +246,14 @@ mvn clean install
 
 
 
+## Build/Rebuild Image
+
+```shell
+mvn clean install
+```
+
+this command usually needs to be executed every time you find your dependencies are missing, this may happen when java tests don't pass, causing a packaging failure
+
 
 
 ## Example on gPRC dependency adding (Java)

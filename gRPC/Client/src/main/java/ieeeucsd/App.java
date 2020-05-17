@@ -8,8 +8,6 @@ import io.grpc.ManagedChannelBuilder;
 
 public class App 
 {
-  
-
     public static void main( String[] args ) throws InterruptedException
     {
         String name = "127.0.0.1";

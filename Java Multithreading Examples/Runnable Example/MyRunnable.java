@@ -8,9 +8,9 @@ public class MyRunnable implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println("Thread " + Thread.currentThread().getId() + " runnning.");
+            System.out.println("Thread " + Thread.currentThread().getName() + " runnning.");
             Thread.sleep(time);
-            System.out.println("Thread " + Thread.currentThread().getId() + " finishing.");
+            System.out.println("Thread " + Thread.currentThread().getName() + " finishing.");
         } catch (Exception e) {
             System.out.println(e.toString());
         }

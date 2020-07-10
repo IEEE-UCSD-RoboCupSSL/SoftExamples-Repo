@@ -4,7 +4,7 @@
 public class Main {
     public static void main(String[] args) {
         for (int i = 0; i < 10; i++) {
-            Thread thread = new Thread(new MyRunnable(i * 1000));
+            Thread thread = new Thread(new MyRunnable(i * 1000), Integer.toString(i * 1000));
             thread.start();
         }
     }

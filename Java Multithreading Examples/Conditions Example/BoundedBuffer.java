@@ -35,12 +35,12 @@ public class BoundedBuffer {
                 notFull.await();
             }
 
-            // if the buffer is not full, add the data to the rear of the buffer
+            // if we're here, then the buffer is not full. add the data to the rear of the buffer
             buffer[rear] = data;
             rear = (rear + 1) % capacity;
             count++;
 
-            // since there's data in the buffer, we notify threads that were waiting to fetch that there's data in the buffer
+            // since there's now data in the buffer, we notify threads that were waiting to fetch that there's data in the buffer
             notEmpty.signal();
         } finally {
             // unlock to allow other threads to deposit
@@ -53,12 +53,12 @@ public class BoundedBuffer {
         lock.lock();
 
         try {
-            // if there's nothing in the buffer, wait until there's something in the buffer before continuing 
+            // if the bufffer is empty, wait until there's something in the buffer before continuing 
             while (count == 0) {
                 notEmpty.await();
             }
 
-            // if the buffer is  not empty, remove data from the front of the buffer
+            // if we're here, then  the buffer is not empty. remove data from the front of the buffer
             String result = buffer[front];
             front = (front + 1) % capacity;
             count--;
